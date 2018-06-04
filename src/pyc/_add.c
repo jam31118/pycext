@@ -1,29 +1,29 @@
 #include <Python.h>
 #include "add.h"
 
+// Declare each module method
 static PyObject *_add_add(PyObject *self, PyObject *args);
 
+// Define an array of module methods
 static PyMethodDef module_methods[] = {
 	{"add", _add_add, METH_VARARGS, "Add doubles"}
 };
 
+// Define this module
 static struct PyModuleDef _add = {
 	PyModuleDef_HEAD_INIT,
 	"_add",
-	"_add modules doc?",
+	"DOCUMENTATION: A set of arithmetics",
 	-1,
 	module_methods
 };
 
+// Create module object
 PyMODINIT_FUNC PyInit__add(void) {
 	return PyModule_Create(&_add);
 }
 
-//PyMODINIT_FUNC init_add(void) {
-//	PyObject *m = Py_InitModule3("_add", module_methods, "Add Module");
-//	if (m == NULL) { return NULL; }
-//}
-
+// Define module methods
 static PyObject *_add_add(PyObject *self, PyObject *args) {
 	double a, b;
 	if (!PyArg_ParseTuple(args, "dd", &a, &b)) { return NULL; }
