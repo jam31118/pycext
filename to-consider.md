@@ -1,0 +1,2 @@
+NPY_INOUT_ARRAY
+
