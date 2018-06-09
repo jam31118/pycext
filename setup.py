@@ -12,7 +12,10 @@ ext_modules = [
     Extension("_array_info", ["./src/pyc/_array_info.c"]),
     Extension("_add", [
         "./src/pyc/_add.c",
-        "./src/c/add.c"])
+        "./src/c/add.c"]),
+    Extension("_array_add", [
+        "./src/pyc/_array_add.c",
+        "./src/c/array_add.c"]),
 ]
 
 setup(

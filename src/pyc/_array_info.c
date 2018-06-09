@@ -35,6 +35,8 @@ static PyObject *_array_info_get_dim(PyObject *self, PyObject *args) {
 
 	int ndim = PyArray_NDIM(arr);
 	PyObject *return_tuple = Py_BuildValue("i", ndim);
+
+	Py_DECREF(arr);
 	
 	return return_tuple;
 }
@@ -54,6 +56,8 @@ static PyObject *_array_info_get_length(PyObject *self, PyObject *args) {
 	
 	npy_intp arr_size = PyArray_SIZE(arr);
 	PyObject *return_tuple = Py_BuildValue("i", arr_size);
+
+	Py_DECREF(arr);
 
 	return return_tuple;
 }
