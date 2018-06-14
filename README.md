@@ -1,7 +1,7 @@
 # Building Extension Modules
 
 ## Requirement
-- Python3 ([CPython][python-dowload-cpython])
+- [Python3 (CPython)](python-dowload-cpython)
 - Numpy
 - Automake
 
@@ -10,4 +10,4 @@
 make
 ```
 
-[python-download-cpython](https://www.python.org/downloads/)
+[python-download-cpython]: https://www.python.org/downloads/
