@@ -19,13 +19,16 @@ int fibo(int n) {
 }
 
 PyObject *bboe_fibo(PyObject *self, PyObject *args) {
-  __sighandler_t prev;
+//  __sighandler_t prev;
   int n, result;
   if (!PyArg_ParseTuple(args, "i", &n))
     return NULL;
-  prev = signal(SIGINT, kb_interrupt_handler);
+  if (signal(SIGINT, kb_interrupt_handler) == SIG_ERR) {
+	  PyErr_SetString(PyExc_Exception, "[ERROR] Failed to set handler for SIGINT");
+	  return NULL;
+  }
   result = fibo(n);
-  signal(SIGINT, prev);
+//  signal(SIGINT, prev);
   if (result < 0) {
     PyErr_SetObject(PyExc_KeyboardInterrupt, NULL);
     return NULL;
