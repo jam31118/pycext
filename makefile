@@ -12,3 +12,8 @@ _add:
 clean:
 	rm -rf build/ *.so
 
+clean-dist:
+	rm -rf dist/ *.egg-info
+
+clean-all: clean clean-dist
+
