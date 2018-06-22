@@ -26,10 +26,10 @@ PyMODINIT_FUNC PyInit_cu(void) {
 	return PyModule_Create(&cu);
 }
 
+
 static PyObject *cu_add_array(PyObject *self, PyObject *args) {
 
   PyObject *a_obj, *b_obj, *out_obj;
-//	long N;
 
 	if (!PyArg_ParseTuple(args, "OO", &a_obj, &b_obj)) { 
 		PyErr_SetString(PyExc_Exception, "Failed to parse argument tuple");
@@ -40,21 +40,6 @@ static PyObject *cu_add_array(PyObject *self, PyObject *args) {
 
 	long N = (long) PyArray_DIM(a_array, 0);
 
-
-//  long N = -1;
-//  PyArrayObject *a_obj, *b_obj, *result_array;
-//  double *a, *b, *result;
-//  
-//	if (!PyArg_ParseTuple(args, "O!O!", &PyArray_Type, &a_obj, &PyArray_Type, &b_obj)) { 
-//		PyErr_SetString(PyExc_Exception, "Failed to parse argument tuple");
-//		return NULL; }
-//
-//  if ( a_obj->dimensions[0] != b_obj->dimensions[0] ) { 
-//		PyErr_SetString(PyExc_Exception, "Input arrays should have same 1st dimension");
-//    return NULL; }
-//
-//  N = a_obj->dimensions[0];
-
   long dims[1];
   dims[0] = N;
 
@@ -64,20 +49,7 @@ static PyObject *cu_add_array(PyObject *self, PyObject *args) {
 	double *b = (double *) PyArray_DATA(b_array);
 	double *result = (double *) PyArray_DATA(result_array);
 
-//  a = (double *) a_obj->data;
-//  b = (double *) b_obj->data;
-//  result = (double *) result_array->data;
-
-//  long i;
-//  for (i=0; i<N; i++) {
-//    std::cout << i << " " << a[i] << " " << b[i] << " " << result[i] << std::endl;
-//  }
-
   add_array(a, b, result, N);
-
-//  for (i=0; i<N; i++) {
-//    std::cout << i << " " << a[i] << " " << b[i] << " " << result[i] << std::endl;
-//  }
 
   Py_DECREF(a_array);
   Py_DECREF(b_array);
