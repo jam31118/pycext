@@ -1,5 +1,7 @@
 #include "add.cuh"
 
+extern "C" {
+
 #define cudaErrchk(ans) { GPUAssert((ans), __FILE__, __LINE__); }
 inline void GPUAssert(cudaError_t code, const char *file, int line, bool abort=true){
 	if (code != cudaSuccess)
@@ -41,3 +43,4 @@ int add_array(double *a, double *b, double *c, long N) {
   return 0;
 }
 
+}
