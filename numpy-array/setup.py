@@ -13,7 +13,7 @@ ext_modules = [
 
 setup(
     name='addc',
-    version='0.0.1a0',
+    version='0.0.1a1',
     description='Test C ext',
     author='sahn',
     author_email='jam31118@gmail.com',
