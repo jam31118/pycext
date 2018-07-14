@@ -10,8 +10,8 @@ ext_modules = [
         "./src/pyc/_array_add.c",
         "./src/c/array_add.c"]),
     Extension("addc.c._array_add_cc", [
-        "./src/pyc/_array_add_cc.cc",
-        "./src/c/array_add_cc.cc"]),
+        "./src/pyc/_array_add_cc.cc"]),
+#        "./src/c/array_add_cc.cc"]),
 ]
 
 setup(
