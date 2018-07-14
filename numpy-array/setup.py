@@ -9,11 +9,14 @@ ext_modules = [
     Extension("addc.c._array_add", [
         "./src/pyc/_array_add.c",
         "./src/c/array_add.c"]),
+    Extension("addc.c._array_add_cc", [
+        "./src/pyc/_array_add_cc.cc",
+        "./src/c/array_add_cc.cc"]),
 ]
 
 setup(
     name='addc',
-    version='0.0.1a1',
+    version='0.0.1a2',
     description='Test C ext',
     author='sahn',
     author_email='jam31118@gmail.com',
